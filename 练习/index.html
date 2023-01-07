@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src=""></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .father{
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            border: 5px solid brown;
+        }
+
+        div[id*="link"]:hover{
+            border:5px solid brown;
+            width: 90px;
+            height: 90px;
+            
+        }
+
+        div[id*="link"]{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: blueviolet;
+            float: left;
+        }
+
+        div[id*="link2"]{
+            position: relative;
+            left: 100px;
+        }
+
+        div[id*="link3"]{
+            position: relative;
+            left: -200px;
+            top:200px
+        }
+
+        div[id*="link4"]{
+            position: relative;
+            left: 200px;
+            top:100px;
+        }
+
+        div[id*="link5"]{
+            background-color: aquamarine;
+            
+        }
+
+        #link2{}
+
+        a{
+            color: aliceblue;
+            text-decoration: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>标题</h1>
+    <div class="father">
+        <div id="link1">
+            <a href="#">链接1</a>
+        </div>
+        <div id="link2">
+            <a href="#">链接2</a>
+        </div>
+        <div id="link3">
+            <a href="#">链接3</a>
+        </div>
+        <div id="link4">
+            <a href="#">链接4</a>
+        </div>
+        <div id="link5">
+            <a href="#">链接5</a>
+        </div>
+    </div>
+</body>
+</html>
