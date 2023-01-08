@@ -212,7 +212,3 @@ function submit(){
 }
 ```
 
-# jQuery
-
-
-
