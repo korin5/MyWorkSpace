@@ -1,0 +1,19 @@
+{
+    //编译器选项
+    "compilerOptions": {
+        "noImplicitAny": true,  //这可以确保你不会错写任何新的类型
+        "noEmitOnError": true,
+        "target": "es6",    //编译目标为es6
+        "module": "amd",    //处理独立文件时的模块加载方式
+        "sourceMap": true   //是否创建map文件以帮助调试
+    },
+    
+    //编译器会编译TypeScript文件（*.ts或*.tsx）
+    //通过排除设置里的TypeScript文件不会被编译
+    "exclude": [
+        //排除设置
+        //"node_modules",
+        //"typings/main",
+        //"typings/main.d.ts"
+    ]
+}
