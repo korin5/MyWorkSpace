@@ -4,14 +4,14 @@ W3C: 万维网联盟
 
 # meta标签
 描述网站的信息, 一般用来做SEO
-```
+```html
 <meta charset="utf-8">
 <meta name="keywords" content="关键词内容">
 <meta name="description" content="描述内容">
 ```
 
 # 常用标签
-```
+```html
 <h1>标题</h1>
 <p>段落</p>
 <br/>       换行
@@ -21,26 +21,26 @@ W3C: 万维网联盟
 ```
 
 # 图片
-```
+```html
 <img src="./1.jpg" alt="名称（加载失败时显示）" title="标题（鼠标悬停显示）">
 ```
 
 # 超链接
-```
+```html
 <a href="./2.html" target="_blank">新窗口</a>
 <a href="#" target="_self">本窗口</a>
 ```
 
 # 锚链接
 先需要一个name标记
-```
+```html
 <p name="top"></p>
 <a href="#top"></a>
 <a href="./2.html#top"></a>
 ```
 
 # 列表
-```
+```html
 <ul>
     <li>无序列表元素</li>
 </ul>
@@ -56,7 +56,7 @@ W3C: 万维网联盟
 ```
 
 # 表格
-```
+```html
 <table border="1">
     <tr>
         <td colspan="2">1左右跨行</td>
@@ -70,13 +70,13 @@ W3C: 万维网联盟
 ```
 
 # 音频视频
-```
+```html
 <video src="./1.mp4" controls autoplay></video>
 <audio src="./1.mp3" controls autoplay></audio>
 ```
 
 # 结构
-```
+```html
 <header>头</header>
 <section>一部分内容</section>
 <nav>导航</nav>
@@ -85,13 +85,13 @@ W3C: 万维网联盟
 
 # 内联框架
 内嵌网页
-```
+```html
 <iframe src="" name="hello"> </iframe>
 <a href="https://www.bilibili.com" target="hello">连接</a>
 ```
 
 # 表单
-```
+```html
 <form method="post" action="result.html">
     <p>姓名：<input type="text" name="username" id="" value="12312" ></p>
     <p>密码：<input type="password" name="password" id=""></p>
@@ -113,7 +113,7 @@ W3C: 万维网联盟
 - search搜索框，后面有X，可以清空文本
 
 # 下拉框
-```
+```html
 <select name="列表名称" id="">
     <option value="选项值">中国</option>
     <option value="选项值" selected>中国</option>
@@ -121,7 +121,7 @@ W3C: 万维网联盟
 ```
 
 # 文本域
-```
+```html
 <textarea name="" id="" cols="30" rows="10"></textarea>
 ```
 
@@ -135,7 +135,7 @@ W3C: 万维网联盟
 
 # 增强鼠标可用性
 点文字也可激活控件
-```
+```html
 <label for="mark">转</label>
 <input type="text" id="mark">
 ```

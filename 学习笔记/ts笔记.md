@@ -8,7 +8,7 @@ npm安装 `npm install -g typescript`
 # 编译
 
 在命令行上，运行TypeScript编译器：
-```
+```ts
 tsc script.ts
 ```
 会输出script.js文件
@@ -20,7 +20,7 @@ tsc script.ts
 3. 保持文件的默认名字为tsconfig.json
 
 将默认的tsconfig.json内容改为
-```
+```ts
 {
     //编译器选项
     "compilerOptions": {

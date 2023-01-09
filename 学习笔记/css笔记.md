@@ -2,7 +2,7 @@
 
 ## 普通选择器
 
-```
+```css
 标签选择器
 p,a{}
 
@@ -31,7 +31,7 @@ a~p{}
 
 ## 伪类选择器
 
-```
+```css
 标签的第一个子元素
 ul li:first-child{}
 
@@ -44,7 +44,7 @@ a:active{}
 
 ## 属性选择器
 
-```
+```css
 带有id或class属性的a标签
 a[id]{}
 a[id='first']{}
@@ -59,7 +59,7 @@ a[href$=com]{}
 ```
 
 # 字体
-```
+```css
 p{
     font-size: 50px;
     font-size: 50px;
@@ -70,7 +70,7 @@ p{
 ```
 
 # 文本样式
-```
+```css
 p{
     color: skyblue;         颜色
     text-align: center;     居中
@@ -85,7 +85,7 @@ p{
 ```
 
 ## 装饰线
-```
+```css
 p{
     text-decoration: underline;         下划线
     text-decoration: line-through;      中划线
@@ -95,7 +95,7 @@ p{
 ```
 
 ## 阴影
-```
+```css
 p{
     分别为：阴影颜色，水平偏移，垂直偏移，阴影半径
     text-shadow: black 10px 10px 10px;
@@ -103,7 +103,7 @@ p{
 ```
 
 # 列表样式
-```
+```css
 ul li{
     height: 10px;               行高
     list-style: square;         正方形标
@@ -112,7 +112,7 @@ ul li{
 ```
 
 # 背景
-```
+```css
 div{
     默认是全部平铺满的（密恐控诉）
     background-image: url();
@@ -129,7 +129,7 @@ div{
 ```
 
 ## 渐变色背景
-```
+```css
 div{
     来自https://www.grabient.com/
     background-color: #4158D0;
@@ -138,7 +138,7 @@ div{
 ```
 
 # 盒子模型
-```
+```css
 div{
     上下和左右边距，auto居中
     margin: 0 auto;
@@ -149,14 +149,14 @@ div{
 ```
 
 ## 圆角边框（css3）
-```
+```css
 div{
     border-radius: 10px;
 }
 ```
 
 # display显示方式
-```
+```css
 div{
     块，大小固定，独占一行
     display: block;
@@ -171,14 +171,14 @@ div{
 
 # 浮动
 也就是不撑大父级的内联元素了
-```
+```css
 div{
     float: left;
 }
 ```
 
 ## 让父级适应浮动元素
-```
+```css
 father:after{
     1.添加空元素
     content: '';
@@ -192,7 +192,7 @@ father:after{
 ```
 
 # 定位
-```
+```css
 div{
     相对定位，相对于上下左右
     position: relative;
@@ -210,7 +210,7 @@ div{
 ```
 
 # 图层
-```
+```css
 div{
     最顶层
     z-index: 999;
@@ -218,7 +218,7 @@ div{
 ```
 
 # 透明度
-```
+```css
 div{
     50%透明
     opacity: 0.5;
