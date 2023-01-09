@@ -1,26 +1,19 @@
-class Car {
-    name:string;
-    year:number;
-
-    constructor(name:string, year:number) {
-      this.name = name;
-      this.year = year;
-    }
-}
-
-let myCar1 = new Car("Ford", 2014);
-let myCar2 = new Car("Audi", 2019);
-
-var myObj = {
-  "name":"runoob",
-  "alexa":10000,
-  "sites": {
-      "site1":"www.runoob.com",
-      "site2":"m.runoob.com",
-      "site3":"c.runoob.com"
+class Student {
+  fullName: string;
+  constructor(public firstName: string, public middleInitial: string, public lastName: string) {
+    this.fullName = firstName + " " + middleInitial + " " + lastName;
   }
 }
 
-var rumoob = myObj.sites.site1
+interface Person {
+  firstName: string;
+  lastName: string;
+}
 
-console.log(rumoob)
+function greeter(person: Person) {
+  return "Hello, " + person.firstName + " " + person.lastName;
+}
+
+let user01 = new Student("Jane", "M.", "User");
+
+console.log(greeter(user01));
