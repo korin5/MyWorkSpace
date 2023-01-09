@@ -1,48 +1,48 @@
 # 交互
 ```js
-console.log(msg);       控制台输出
-alert(msg);             浏览器弹出警示框
-prompt(info);           浏览器弹出输入框
+console.log(msg);       //控制台输出
+alert(msg);             //浏览器弹出警示框
+prompt(info);           //浏览器弹出输入框
 ```
 
 # 变量
-通过var声明
+通过 `var` 或 `let` 声明
 ```js
 var carName;    未定义的值为undefined
 var text = "Hello" + "world!";
 ```
 
 # 作用域
-var有函数作用域
+
+`var` 没有块作用域
+```js
+{
+    var x
+}
+//此处可以访问 x
+```
+
+`var` 有函数作用域
 ```js
 function one(){
-    var
+    var x
 }
-此处不能访问var
+//此处不能访问 x
+//贼tm抽象这sb语言
 ```
 
-var没有块作用域
+`let` 有块作用域，也有函数作用域
 ```js
 {
-    var
+    let x
 }
-此处可以访问var
+//此处不能访问 x
+
+//经常在循环中使用let
+for(let i = 0;i < 10;i++){}
 ```
 
-let有块作用域
-```js
-{
-    let
-}
-此处不能访问let
-
-在循环中使用let
-for(let i = 0;i < 10;i++){
-
-}
-```
-
-const定义常量（不可修改）
+`const` 定义常量，必须进行初始化，且不可修改
 
 # 数据类型
 
@@ -53,14 +53,14 @@ const定义常量（不可修改）
 
 # 类型转换
 ```js
-把6转换为string类型
-String(6)
+//num转str
+String(6) -> '6'
 
-把'6'转换为number类型
-Number('6')
+//str转num
+Number('6') -> 6
 
-boolean转number
-0或1
+//bool转num
+Number(true) -> 1
 ```
 
 # 函数
@@ -78,35 +78,39 @@ function myFunction(p1,p2){
 - onkeydown 按下键盘
 - onload 浏览器完成加载
 
-# 异步处理
-```js
-等待3秒，打印'6'
-setTimeout(print('6'),3000)
-```
-
 # 类
-- 类命名首字母大写
-- 每个类都要添加`constructor()`方法
+
+类命名首字母大写
+
 ```js
 class Car {
-  constructor(name, year) {
-    this.name = name;
-    this.year = year;
-  }
+    //每个类都要添加 constructor() 方法
+    constructor(name, year) {
+        this.name = name;
+        this.year = year;
+    }
 }
 let myCar1 = new Car("Ford", 2014);
 let myCar2 = new Car("Audi", 2019);
 ```
 
-## 继承
-- 继承另父类的所有方法
-- `super()`方法调用了父级的`constructor()`方法
+## 子类继承
+
 ```js
+//子类继承了父类的所有方法
+//父类：Student，子类：GoodStudent
 class GoodStudent extends Student{
     constructor(name){
+        //super() 方法调用了父级的 constructor()
         super(name);
     }
 }
+```
+
+# 异步处理
+```js
+等待3秒，打印'6'
+setTimeout(print('6'),3000)
 ```
 
 # BOM

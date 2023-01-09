@@ -1,25 +1,18 @@
 # 安装
 有两种主要的方式来获取TypeScript工具：
-- 通过npm（先安装Node.js，用它的包管理器）
+- 通过npm（先安装Node.js，用它的包管理器：`npm install -g typescript`）
 - 安装Visual Studio自带TypeScript插件
-
-npm安装 `npm install -g typescript`
 
 # 编译
 
-在命令行上，运行TypeScript编译器：
+在命令行上，运行TypeScript编译器，会输出script.js文件
 ```ts
 tsc script.ts
 ```
-会输出script.js文件
 
 # 配置
 
-1. 右击scripts文件夹并选择New Item
-2. 接着选择TypeScript Configuration File
-3. 保持文件的默认名字为tsconfig.json
-
-将默认的tsconfig.json内容改为
+新建 tsconfig.json
 ```ts
 {
     //编译器选项
