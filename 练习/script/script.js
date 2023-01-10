@@ -2,6 +2,12 @@ class Car {
     constructor(name, year) {
         this.name = name;
         this.year = year;
+class Guitar{
+    name
+    type
+    constructor(name,type){
+        this.name = name
+        this.type = type
     }
 }
 let myCar1 = new Car("Ford", 2014);
