@@ -1,7 +1,3 @@
-class Car {
-    constructor(name, year) {
-        this.name = name;
-        this.year = year;
 class Guitar{
     name
     type
@@ -10,17 +6,49 @@ class Guitar{
         this.type = type
     }
 }
-let myCar1 = new Car("Ford", 2014);
-let myCar2 = new Car("Audi", 2019);
-var myObj = {
-    "name": "runoob",
-    "alexa": 10000,
-    "sites": {
-        "site1": "www.runoob.com",
-        "site2": "m.runoob.com",
-        "site3": "c.runoob.com"
+
+var kapma = new Guitar('卡马','原声')
+var martin = new Guitar('马丁','原声')
+var ibanez = new Guitar('依班娜','电声')
+
+//对象
+// var igusa_seiji = {
+//     name:'井草圣二',
+//     birth:['unknown','unknown','unknown'],
+//     height:'unknowen',
+//     type:'fingerstyle'
+// }
+
+//定义吉他品数1到21
+var capo = []
+capo.length = 21
+for(let i = 0;i<21;i++){
+    if((i+1)<10){
+        j = '0'+ String(i+1)
     }
-};
-var rumoob = myObj.sites.site1;
-console.log(rumoob);
-//# sourceMappingURL=script.js.map
+    else j = String(i+1);
+
+    capo[i] =  j +'品'
+}
+
+//存储属性集合
+var artist = new Set();
+artist.add(['name','birth','contury','gender'])
+
+// for(let x of artist){
+//     console.log(x)
+// }
+
+// for (const x of capo) {
+//     console.log(x)
+// }
+
+// capo.forEach((element,index,array) => {
+//     console.log('elem=' + element+' indx=' + index)
+//     // console.log('arry = ' + array)
+
+// });
+
+artist.forEach((Element)=>{
+    console.log(Element)
+})

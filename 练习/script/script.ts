@@ -1,19 +1,29 @@
-class Student {
-  fullName: string;
-  constructor(public firstName: string, public middleInitial: string, public lastName: string) {
-    this.fullName = firstName + " " + middleInitial + " " + lastName;
+class Guitar{
+  name:string
+  type:string
+  constructor(name:string,type:string){
+      this.name = name
+      this.type = type
   }
 }
 
-interface Person {
-  firstName: string;
-  lastName: string;
+var kapma = new Guitar('卡马','原声')
+var martin = new Guitar('马丁','原声')
+var ibanez = new Guitar('依班娜','电声')
+
+var capo = []
+
+//定义吉他品数1到21
+for(let i = 0;i<21;i++){
+  let j
+  if((i+1)<10){
+      j = '0'+ String(i+1)
+  }
+  else j = String(i+1);
+  capo[i] =  j +'品'
 }
 
-function greeter(person: Person) {
-  return "Hello, " + person.firstName + " " + person.lastName;
-}
 
-let user01 = new Student("Jane", "M.", "User");
-
-console.log(greeter(user01));
+// capo.forEach((element,index,Array) => {
+//     console.log(element)
+// });
