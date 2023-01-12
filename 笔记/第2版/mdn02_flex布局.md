@@ -1,6 +1,8 @@
 # 启用flex
 
-在父元素添加`display: flex`
+在父元素添加 `display: flex`
+
+将父容器改为 flex 布局后，他的直接子项会变为 flex 项
 
 # 主轴方向
 
