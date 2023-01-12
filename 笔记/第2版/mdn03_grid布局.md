@@ -95,3 +95,66 @@ grid-gap: 20px 10px;
 
 # 使用 grid-template-areas 属性放置元素
 
+你要命名一些元素，并在属性中使用这些名字作为一个区域
+
+```css
+.container {
+  display: grid;
+  grid-template-areas:
+      "header header"
+      "sidebar content"
+      "footer footer";
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 20px;
+}
+header {
+  grid-area: header;
+}
+article {
+  grid-area: content;
+}
+aside {
+  grid-area: sidebar;
+}
+footer {
+  grid-area: footer;
+}
+```
+
+![](./img03/wm.png)
+grid-template-areas属性的使用规则：
+
+- 你需要填满网格的每个格子
+- 对于某个横跨多个格子的元素，重复写上那个元素grid-area属性定义的区域名字
+- 所有名字只能出现在一个连续的矩形区域
+- 使用 `.` 符号，让一个格子留空
+
+虽然代码变长了，但是这种方法更加直观，对于复杂的布局也能迅速创建
+
+# 用grid排版框架
+
+数格子还不简单？
+
+```css
+header {
+  grid-column: 1 / 13;
+  grid-row: 1;
+}
+
+article {
+  grid-column: 4 / 13;
+  grid-row: 2;
+}
+
+aside {
+  grid-column: 1 / 4;
+  grid-row: 2;
+}
+
+footer {
+  grid-column: 1 / 13;
+  grid-row: 3;
+}
+```
+
+![](./img03/ugz.png)
