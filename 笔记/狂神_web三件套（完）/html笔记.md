@@ -49,9 +49,33 @@ W3C: 万维网联盟
     <li>有序列表元素</li>
 </ol>
 
+<!-- 自定义列表 -->
 <dl>
-    <dt>自定义列表标题</dt>
-    <dd>元素</dd>
+    <dt>A</dt>
+    <dd>Apple</dd>
+    <dd>Ant</dd>
+    <dd>Altimeter</dd>
+    <dd>Airplane</dd>
+    <dt>B</dt>
+    <dd>Bird</dd>
+    <dd>Buzzard</dd>
+    <dd>Bee</dd>
+    <dd>Banana</dd>
+    <dd>Beanstalk</dd>
+    <dt>C</dt>
+    <dd>Calculator</dd>
+    <dd>Cane</dd>
+    <dd>Camera</dd>
+    <dd>Camel</dd>
+    <dt>D</dt>
+    <dd>Duck</dd>
+    <dd>Dime</dd>
+    <dd>Dipstick</dd>
+    <dd>Drone</dd>
+    <dt>E</dt>
+    <dd>Egg</dd>
+    <dd>Elephant</dd>
+    <dd>Egret</dd>
 </dl>
 ```
 
