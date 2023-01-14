@@ -84,3 +84,154 @@ para.onclick = function() {
 <img src="images/dinosaur.jpg" alt="The head" title="标题">
 ```
 
+## 响应式图片
+
+### 选择合适大小的图片
+
+```html
+<img
+  srcset="elva-fairy-480w.jpg 480w, elva-fairy-800w.jpg 800w"
+  sizes="(max-width: 600px) 480px,
+         800px"
+  src="elva-fairy-800w.jpg"
+  alt="Elva dressed as a fairy" />
+```
+
+- srcset 定义了浏览器可选择的图片设置以及每个图片的大小
+- sizes 定义了一组媒体条件（例如屏幕宽度）为真时，用什么图片尺寸（例子是当视口的宽度小于等于 600px 时，图片480px）
+
+有了这些属性后，浏览器会：
+
+1. 检查设备宽度
+2. 检查 sizes 列表中哪个媒体条件是第一个为真
+3. 查看给予该媒体查询的槽大小
+4. 加载 srcset 列表中引用的最接近所选的槽大小的图像
+
+### 多分辨率图片
+
+如果设备有高分辨率，用两个或更多的设备像素表示一个 CSS 像素，会加载 elva-fairy-640w.jpg
+
+```html
+<img srcset="elva-fairy-320w.jpg, elva-fairy-480w.jpg 1.5x, elva-fairy-640w.jpg 2x"
+     src="elva-fairy-640w.jpg"
+     alt="Elva dressed as a fairy" />
+```
+
+### picture标签
+
+```html
+<picture>
+  <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg" />
+  <source media="(min-width: 800px)" srcset="elva-800w.jpg" />
+  <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva" />
+</picture>
+```
+
+在上述示例中，如果视窗的宽度为 799px 或更少，第一个 `<source>` 元素的图片就会显示
+
+# 表格
+
+```html
+<table>
+  <tr>
+    <th>&nbsp;</th>
+    <th>Knocky</th>
+    <th>Flor</th>
+  </tr>
+  <tr>
+    <td>Breed</td>
+    <td>Jack Russell</td>
+    <td>Poodle</td>
+  </tr>
+  <tr>
+    <td>Age</td>
+    <td>16</td>
+    <td>9</td>
+  </tr>
+</table>
+```
+<table>
+  <tr>
+    <th>&nbsp;</th>
+    <th>Knocky</th>
+    <th>Flor</th>
+  </tr>
+  <tr>
+    <td>Breed</td>
+    <td>Jack Russell</td>
+    <td>Poodle</td>
+  </tr>
+  <tr>
+    <td>Age</td>
+    <td>16</td>
+    <td>9</td>
+  </tr>
+</table>
+
+## 跨列跨行
+
+```html
+<table>
+    <tr>
+        <th colspan="2">Hippopotamus</th>
+    </tr>
+    <tr>
+        <th rowspan="2">Horse</th>
+        <td>Mare</td>
+    </tr>
+    <tr>
+        <td>Stallion</td>
+    </tr>
+</table>
+```
+
+<table>
+    <tr>
+        <th colspan="2">Hippopotamus</th>
+    </tr>
+    <tr>
+        <th rowspan="2">Horse</th>
+        <td>Mare</td>
+    </tr>
+    <tr>
+        <td>Stallion</td>
+    </tr>
+</table>
+
+## col标签
+
+对 `<col>` 应用样式，使用span多选
+
+```html
+<table>
+  <colgroup>
+    <col>
+    <col style="background-color: yellow">
+  </colgroup>
+  <tr>
+    <th>Data 1</th>
+    <th>Data 2</th>
+  </tr>
+  <tr>
+    <td>Calcutta</td>
+    <td>Orange</td>
+  </tr>
+</table>
+```
+
+<table>
+  <colgroup>
+    <col>
+    <col style="background-color: yellow" span="2">
+  </colgroup>
+  <tr>
+    <th>Data 1</th>
+    <th>Data 2</th>
+    <th>Data 3</th>
+  </tr>
+  <tr>
+    <td>Calcutta</td>
+    <td>Orange</td>
+    <td>Ordfrge</td>
+  </tr>
+</table>
