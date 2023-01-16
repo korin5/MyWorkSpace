@@ -1,23 +1,24 @@
 # head标签
 
-图标，网页描述（SEO）
+图标，网页描述（SEO），关键词
 ```html
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<meta name="description" content="">
+<meta name="description" content="描述">
+<meta name="keywords" content="关键词">
 ```
 
 # a标签
 
-使用 download 属性来提供一个下载文件默认的保存文件名
+<!-- 使用 download 属性来提供一个下载文件默认的保存文件名（至今没成功过）
 
 ```html
 <a href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=zh-CN"
    download="firefox-latest-64bit-installer.exe">
   下载最新的 Firefox 中文版 - Windows（64 位）
 </a>
-```
+``` -->
 
-电子邮件链接 (mailto:)
+电子邮件链接
 
 ```html
 <a href="mailto:635472561@qq.com">向 635472561 发邮件</a>
@@ -40,8 +41,8 @@
 
 # 展示代码
 
-- `<code>`: 用于标记计算机通用代码。
-- `<pre>`: 用于保留空白字符（通常用于代码块）
+- `<code>`: 用于标记计算机通用代码
+- `<pre>`: 用于保留空格（通常用于代码块）
 
 ```html
 <pre><code>const para = document.querySelector('p');
@@ -51,15 +52,7 @@ para.onclick = function() {
 }</code></pre>
 ```
 
-以上代码输出如下
-
-<pre><code>const para = document.querySelector('p');
-
-para.onclick = function() {
-  alert('噢，噢，噢，别点我了。');
-}</code></pre>
-
-# 时间
+<!-- # 时间（好像没什么用）
 
 ```html
 <time datetime="2016-01-20">20 January 2016</time>
@@ -73,7 +66,7 @@ para.onclick = function() {
 
 - 20 January 2016
 - 20th January 2016
-- Jan 20 2016
+- Jan 20 2016 -->
 
 # 图片
 
@@ -86,7 +79,7 @@ para.onclick = function() {
 
 ## 响应式图片
 
-### 选择合适大小的图片
+<!-- ### 选择合适大小的图片（至今没成功过）
 
 ```html
 <img
@@ -105,9 +98,9 @@ para.onclick = function() {
 1. 检查设备宽度
 2. 检查 sizes 列表中哪个媒体条件是第一个为真
 3. 查看给予该媒体查询的槽大小
-4. 加载 srcset 列表中引用的最接近所选的槽大小的图像
+4. 加载 srcset 列表中引用的最接近所选的槽大小的图像 -->
 
-### 多分辨率图片
+<!-- ### 选择分辨率（至今没成功过）
 
 如果设备有高分辨率，用两个或更多的设备像素表示一个 CSS 像素，会加载 elva-fairy-640w.jpg
 
@@ -115,7 +108,7 @@ para.onclick = function() {
 <img srcset="elva-fairy-320w.jpg, elva-fairy-480w.jpg 1.5x, elva-fairy-640w.jpg 2x"
      src="elva-fairy-640w.jpg"
      alt="Elva dressed as a fairy" />
-```
+``` -->
 
 ### picture标签
 
@@ -200,7 +193,7 @@ para.onclick = function() {
 
 ## col标签
 
-对 `<col>` 应用样式，使用span多选
+要对 "列" 应用样式，就要使用`col`标签
 
 ```html
 <table>
