@@ -35,7 +35,7 @@
 grid-gap: 20px 10px;
 ```
 
-> `grid-gap` 是老名字，现在逐渐被 `gap` 取代，也可以把两个属性都写上
+> `grid-gap` 是老名字，现在逐渐被 `gap` 取代，也可以写 `row-gap` 这种
 
 # 重复构建 repeat
 

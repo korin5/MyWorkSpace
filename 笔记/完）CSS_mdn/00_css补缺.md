@@ -28,6 +28,20 @@ a::after {
 
 # 背景
 
+## 大小
+
+如果图片长宽比和盒子不同
+
+```css
+background-size: cover      填满盒子的宽或高，如果比例不对就裁切
+background-size: contain    填满盒子的宽或高，如果比例不对就会出现间隙
+```
+
+通过调整图片填充方式和定位，就可以实现复杂的位置
+```css
+background-positation-x
+```
+
 ## 平铺
 
 ```css
@@ -37,15 +51,6 @@ background-repeat: no-repeat;
 repeat-x —水平重复
 repeat-y —垂直重复
 repeat — 在两个方向重复
-```
-
-## 大小
-
-如果图片长宽比和盒子不同
-
-```css
-background-size: cover      放大裁切
-background-size: contain    使图像的大小适合盒子内（会出现间隙）
 ```
 
 ## 滚动
@@ -84,13 +89,17 @@ vertical-lr: 块流向从左向右。对应的文本方向是纵向的。
 - 仅在y轴滚动 `overflow-y: scroll`
 - 让浏览器决定是否显示滚动条 `overflow: auto`
 
-将一张图片的 `max-width` 设为 100%。这将会使图片的尺寸小于等于盒子。这个技术也会对其他替换元素（例如 `<video>`，或者 `<iframe>` 起作用
-
 # 图片
 
+将一张图片的 `max-width` 设为 100%。这将会使图片的尺寸小于等于盒子。这个技术也会对其他替换元素（例如 `<video>`，或者 `<iframe>` 起作用
+
 ```css
-object-fit: cover;      放大裁切
-object-fit: contain;    使图像的大小适合盒子内（会出现间隙）
+width: 100%;
+height: 100%;
+做上面两步填满盒子的宽或高，让填充属性生效
+
+object-fit: cover;      如果比例不对就裁切
+object-fit: contain;    如果比例不对就会出现间隙
 ```
 
 # 文本样式
@@ -101,27 +110,34 @@ object-fit: contain;    使图像的大小适合盒子内（会出现间隙）
 
 行高：`line-height`
 
-字体的1.5倍：`line-height: 1.5;`
+字体的1.5倍：`line-height: 1.5em;`
 
 字母和单词间距：`letter-spacing` 和 `word-spacing`
 
 ## Font 简写
 
-顺序： style, variant, weight, stretch, size, line-height, family
+顺序：
+1. font-style
+2. font-variant
+3. font-weight
+4. font-stretch
+5. font-size（必须指定）
+6. line-height
+7. font-family（必须指定）
 
-font-size 和 font-family 一定要指定，并且之间必须放一个正斜杠
+> 注意：大小、行高之间要放一个 `"/"`
+
+```css
+font: italic normal bold normal 1em/1.5em Helvetica, Arial, sans-serif;
+```
 
 # 列表
 
-这三个属性可以在 <ul> 或 <ol> 元素上设置：
+这三个属性可以在 `<ul>` 或 `<ol>` 元素上设置：
 
 - list-style-type ：项目符号的类型
-- list-style-position ：在每个项目开始之前，项目符号出现在列表项内还是外
-- list-style-image ：为项目符号使用自定义图片
-
-- 罗马数字：upper-roman
-- 位于行内：inside
-- 自定义图片：url(star.svg)
+- list-style-position ：项目符号出现在表内 `inside` 还是表外 `outside`
+- list-style-image ：为项目符号使用自定义图片` url(star.svg)`
 
 ## 从 4 开始计数
 
