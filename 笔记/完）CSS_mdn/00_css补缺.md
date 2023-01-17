@@ -158,3 +158,110 @@ font: italic normal bold normal 1em/1.5em Helvetica, Arial, sans-serif;
 - Hover: 光标停留在这个链接
 - Focus: 被选中的时候
 - Active: 被激活的时候 (比如被点击的时候)
+
+# 媒体查询
+
+在视口窄于 600 像素的时候变成蓝色
+
+```css
+@media screen and (max-width: 600px) {
+    body {
+        color: red;
+    }
+}
+```
+
+orientation
+
+我们可以用它测得竖放（portrait mode）和横放（landscape mode）模式。
+
+要在设备处于横向的时候改变 body 文本颜色的话，可使用下面的媒体查询。
+
+```css
+@media (orientation: landscape) {
+    body {
+        color: rebeccapurple;
+    }
+}
+```
+
+这种特征意味着你可以测试用户是否能在一个元素上悬浮，这也基本就是说他们正在使用某种指点设备，因为触摸屏和键盘导航是没法实现悬浮的。
+
+```css
+@media (hover: hover) {
+    body {
+        color: rebeccapurple;
+    }
+}
+```
+
+## 逻辑
+
+与
+
+```css
+@media screen and (min-width: 400px) and (orientation: landscape) {
+    body {
+        color: blue;
+    }
+}
+```
+
+或
+
+```css
+@media screen and (min-width: 400px), screen and (orientation: landscape) {
+    body {
+        color: blue;
+    }
+}
+```
+
+非，在下面的例子中，文本只会在朝向为竖着的时候变成蓝色。
+
+```css
+@media not all and (orientation: landscape) {
+    body {
+        color: blue;
+    }
+}
+```
+
+## 断点
+
+```css
+@media screen and (min-width: 40em) {
+    article {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        column-gap: 20px;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    nav li {
+        flex: 1;
+    }
+}
+```
+
+```css
+@media screen and (min-width: 70em) {
+    main {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        column-gap: 20px;
+    }
+
+    article {
+        margin-bottom: 0;
+    }
+
+    footer {
+        border-top: 1px solid #ccc;
+        margin-top: 2em;
+    }
+}
+```
