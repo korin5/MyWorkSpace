@@ -14,15 +14,25 @@
       padding: 0;
       box-sizing: border-box;
     }
+
+    body{
+      background-image: url(./images/1801.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
     div{
-      background-color: rgba(60, 82, 94, 0.8);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     a{
-      display: inline-block;
-      width: 450px;
+      display: block;
+      flex: 1 450px;
       height: 300px;
-      border:4px solid rgb(31, 39, 38);
+      border:6px solid rgba(255, 244, 244, 0.2);
       margin: 10px 10px;
       box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
       border-radius: 6px;
@@ -31,10 +41,9 @@
     }
 
     a img{
-      
       transition:1s;
-      width: 450px;
-      height: 300px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
 
@@ -44,30 +53,39 @@
     }
 
     a:hover{
-      border:4px solid rgb(224, 251, 249);
+      border:6px solid rgba(255, 255, 255, 0.8);
       transition: 0.3s;
+    }
+
+    a:active::before{
+      transition: 0.3s;
+
+    }
+
+    a:active img{
+      transform: scale(1.1,1.1);
+      transition: 0.1s;
+
     }
 
     a::before{
       content: "Miku";
       position: absolute;
-      width: 0%;
-      height: 0%;
-      color: white;
-      line-height: 300px;
+      width: 100%;
+      height: 100%;
+      color: rgb(229, 243, 239);
+      line-height: 100%;
       text-align: center;
       font-size: 5em;
-      background-color: rgba(10, 10, 10, 0.5);
+      background-color: rgba(45, 45, 45, 0.45);
       z-index: 999;
       display: none;
     }
 
-    
-
     a:hover::before{
-      width: 100%;
-      height: 100%;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       
     }
 
@@ -78,18 +96,23 @@
 <body>
 
   <div>
-    <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit aut quas ex, voluptatibus labore architecto molestiae cum est consequuntur corrupti dolorum sit necessitatibus assumenda nisi, dolores eaque, quasi facilis ullam?</p> -->
-    <a href="#" title="传送"><img src="./images/1536.jpg" alt=""></a>
-    <a href="#" title="传送"><img src="./images/1586.jpg" alt=""></a>
-    <a href="#" title="传送"><img src="./images/1800.jpg" alt=""></a>
-    <a href="#" title="传送"><img src="./images/1801.jpg" alt=""></a>
-    <a href="#" title="传送"><img src="./images/1920.jpg" alt=""></a>
-    <a href="#" title="传送"><img src="./images/2039.jpg" alt=""></a>
-    <a href="#" title="传送"><img src="./images/2200.jpg" alt=""></a>
-    <a href="#" title="传送"><img src="./images/1484.jpg" alt=""></a>
-    <a href="#" title="传送"><img src="./images/4500.jpg" alt=""></a>
+    <a onclick="allert()" href="#" name="1" title="传送"><img src="./images/1536.jpg" alt=""></a>
+    <a onclick="allert()" href="#" name="2" title="传送"><img src="./images/1586.jpg" alt=""></a>
+    <a onclick="allert()" href="#" name="3" title="传送"><img src="./images/1800.jpg" alt=""></a>
+    <a onclick="allert()" href="#" name="4" title="传送"><img src="./images/1801.jpg" alt=""></a>
+    <a onclick="allert()" href="#" name="5" title="传送"><img src="./images/1920.jpg" alt=""></a>
+    <a onclick="allert()" href="#" name="6" title="传送"><img src="./images/2039.jpg" alt=""></a>
+    <a onclick="allert()" href="#" name="7" title="传送"><img src="./images/2200.jpg" alt=""></a>
+    <a onclick="allert()" href="#" name="8" title="传送"><img src="./images/1484.jpg" alt=""></a>
+    <a onclick="allert()" href="#" name="9" title="传送"><img src="./images/4500.jpg" alt=""></a>
   </div>
   
+  <script>
+    function allert(){
+      console.log('你点击了Miku');
+    }
+  </script>
+
 </body>
 
 </html>

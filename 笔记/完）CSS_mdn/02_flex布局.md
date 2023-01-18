@@ -25,18 +25,9 @@ flex-direction 可以指定主轴的方向, 它默认值是 row 横向
 
 # flex-flow缩写
 
-全写
-```css
-flex-direction: row;
-flex-wrap: wrap;
-```
-
-缩写
 ```css
 flex-flow: row wrap;
 ```
-
-> 建议使用缩写
 
 # 动态尺寸
 
@@ -54,7 +45,7 @@ flex-flow: row wrap;
 
 这让卡片首先给出 200px 的可用空间，然后，剩余的可用空间将根据分配的比例共享”
 
-# flex 缩写与全写
+<!-- # flex 缩写与全写
 
 flex 缩写可以指定三个不同属性
 
@@ -62,30 +53,28 @@ flex 缩写可以指定三个不同属性
 2. 溢出量，全写 `flex-shrink` 阻止元素溢出容器（高级功能）
 3. 最小值，全写 `flex-basis`
 
-> 建议使用缩写
+> 建议使用缩写 -->
 
 # 水平和垂直对齐
 
-给父元素添加 `align-items` 控制 flex 项在交叉轴上的位置
+给父元素添加 `align-items` 垂直对齐， `justify-content` 水平对齐
 
-给父元素添加 `justify-content` 控制 flex 项在主轴上的位置
+## align-items
 
-## align-items 垂直对齐
-
-- 默认值是 `stretch`，flex 项会上下拉伸，填满父容器
-- `center` 值会使子项保持其原有的高度，但是会上下居中
-- `flex-start` 或 `flex-end` 能使子项在交叉轴的开始或结束处对齐所有的值
+- 默认 `stretch` 上下拉伸填满父容器
+- `center`
+- `flex-start` 或 `flex-end`
 
 > 给子项添加 `align-self: flex-end` 可以覆盖 `align-items` 的属性
 
-## justify-content 水平对齐
+## justify-content
 
-- 默认值是 `flex-start`，flex 项都位于主轴的开始处
-- `flex-end` 能让 flex 项到结尾处
-- `center` 可以让 flex 项在主轴居中
-- `space-around` 会使 flex 项均匀分布，在任意一端都会留有一点空间
-- `space-between` 也是均匀分布，只是它不会在两端留下任何空间
-- `space-evenly` 也是均匀分布，它在两端留的空间会和间隙大小相同
+- 默认 `flex-start`
+- `flex-end`
+- `center`
+- `space-around` 均匀分布，在两端留下空间
+- `space-between` 均匀分布，不在两端留下空间
+<!-- - `space-evenly` 均匀分布，在两端留下空间，和间隙大小相同 -->
 
 # flex 项排序
 
