@@ -1,17 +1,28 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+
+const href = {
+    vue: 'https://vuejs.org/',
+    vite: 'https://vitejs.dev',
+    baidu: 'https://baidu.com/'
+}
+
+const attrname = 'href'
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
+    <a :href="href.vite" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
-    <a href="https://vuejs.org/" target="_blank">
+    <a :href="href.vue" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+
+  <a :[attrname]="href.baidu">baidu</a>
+
+  <HelloWorld msg="Vite + Vue"/>
 </template>
 
 <style scoped>

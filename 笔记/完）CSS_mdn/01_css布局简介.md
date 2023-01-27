@@ -23,7 +23,8 @@
     grid-gap: 10px;
 }
 ``` -->
-![](./img/grid3x2.png)
+![图 1](../images/01_css%E5%B8%83%E5%B1%80%E7%AE%80%E4%BB%8B-1674810917452.png)  
+
 
 # Float
 
