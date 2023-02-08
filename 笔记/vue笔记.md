@@ -214,3 +214,99 @@ const posts = ref([
   :title="post.title"
  />
 ```
+
+# Prop传值
+
+```js
+defineProp({
+    propA:String,//参数类型
+
+    propC: {
+        type: String,
+        required: true//表示参数必传
+    },
+
+    propD: {
+        type: Number,
+        default: 100//参数默认值
+    },
+})
+
+<Hello propC='Hello'/>
+```
+
+type 也可以是 Class
+```js
+class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName
+    this.lastName = lastName
+  }
+}
+```
+
+# v-model
+
+v-model 也可以在组件上使用，以实现双向绑定
+
+# 插槽 Slots
+
+```js
+//调用组件
+<FancyButton>
+  Click me!     //插槽内容（可以是任何内容，可以访问父组件的变量）
+</FancyButton>
+
+//组件模板内
+<button class="fancy-btn">
+  <slot></slot> //插槽出口（里面也可以设置默认内容）
+</button>
+
+//渲染结果
+<button class="fancy-btn">Click me!</button>
+```
+
+## 具名插槽
+
+```js
+<BaseLayout>
+  <template #header>    //全称（v-slot:header）
+    <h1>Here might be a page title</h1>
+  </template>
+</BaseLayout>
+
+<slot name="header"></slot>
+```
+
+# 依赖注入
+
+上层发：
+```js
+provide('注入名', 值) //可以接收任何值，包括响应式状态
+```
+
+下层接：
+```js
+const message = inject('注入名')
+```
+
+提供一个更改数据的方法函数
+
+```js
+//提供方
+function updateLocation() {
+  location.value = 'South Pole'
+}
+
+provide('location', {
+  location,
+  updateLocation
+})
+```
+
+```js
+//注入方
+const { location, updateLocation } = inject('location')
+
+<button @click="updateLocation">{{ location }}</button>
+```

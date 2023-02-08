@@ -1,21 +1,28 @@
 <script setup>
-import { ref,computed } from 'vue'
+import { ref } from 'vue'
+import List from './List.vue'
 
 defineProps({
-    msg: String
+    msg:String
 })
-
 const state = ref({ count: 0 })
 
-const now = computed(()=>{
-    return Date.now()
-})
 </script>
 
 <template>
     <h1>{{ msg }}</h1>
+    <slot name="header"></slot>
+    <button class="solt">
+        <slot></slot>
+    </button>
+    <div>
+        <slot name="main"></slot>
+        <slot name="footer" />
+    </div>
+    
 
-    <div class="card">
+    
+    <!-- <div class="card">
         <button type="button" @click="">count is {{ now }}</button>
         <p>
             Edit
@@ -33,7 +40,7 @@ const now = computed(()=>{
         <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
         in your IDE for a better DX
     </p>
-    <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+    <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p> -->
 </template>
 
 <style scoped>

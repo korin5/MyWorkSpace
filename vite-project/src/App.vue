@@ -1,39 +1,42 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import { ref,watch } from 'vue'
+import { ref, watch, watchEffect } from 'vue'
 
-
-const artists = ref([
-    { name: 'seiji', type: 'fingerstyle' },
-    { name: 'yuki', type: 'fingerstyle' },
-    { name: 'okapi', type: 'fingerstyle' },
-])
 const text = ref()
+const isRight = ref(' ')
 
-watch(text,()=>{
-    console.log(text)
+watchEffect(() => {
+    if (text.value == '123') {
+        isRight.value = 'Right!'
+    } else if (!text.value) {
+        isRight.value = ' '
+    } else isRight.value = 'It is wrong...'
 })
 </script>
 
 <template>
-    <div v-show=false>
-        <a href="#" target="_blank">
-            <img src="/vite.svg" class="logo" alt="Vite logo" />
-        </a>
-        <a href="#" target="_blank">
-            <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-        </a>
-    </div>
 
     <div>
-        <h1>List</h1>
+        <h1>Enter 123</h1>
         <input type="text" v-model="text">
-        <p>{{ text }}</p>
+        <p>{{ isRight }}</p>
     </div>
 
+    <ListComponent />
 
+    <HelloWorld msg="Hello World!">
 
-    <!-- <HelloWorld msg="Vite + Vue"/> -->
+        <template #header>
+            <h2>标题</h2>
+        </template>
+        <template #main>
+            <p>内容</p>
+        </template>
+        <template #footer>
+            <h3>页脚</h3>
+        </template>
+        Click me!
+    </HelloWorld>
 </template>
 
 <style scoped>
