@@ -1,36 +1,43 @@
 <template>
   <v-hover v-slot:default="{ isHovering, props }">
-    <v-card class="ma-6 mr-0 mt-0 align-self-baseline" min-width="100" max-width="600" v-bind="props"
-      :elevation="isHovering ? 22 : 2">
+    <v-card class="flex-1-1 ma-6 mr-0 mt-0 align-self-baseline" min-width="100" max-width="500" v-bind="props"
+      rounded="lg" :elevation="isHovering ? 22 : 2">
+
+      <v-card rounded="0" elevation="0">
+        <!-- <img id="img" :src="music.img">
+        <a class="ma-auto" style="text-decoration: none;display: block;" v-if="music.link" target="_blank"
+          :href="music.link"><v-btn v-show="isHovering" prepend-icon="mdi-open-in-new" variant="outlined" color="white">
+            观看视频
+          </v-btn></a> -->
+
+        <div class="container">
+          <img :src="music.img" class="image">
+          <div class="overlay">
+            <a class="btn ma-auto" style="text-decoration: none;display: block;" v-if="music.link" target="_blank"
+              :href="music.link"><v-btn v-show="isHovering" prepend-icon="mdi-open-in-new" variant="outlined"
+                color="white">
+                观看视频
+              </v-btn></a>
+          </div>
+        </div>
 
 
-      <v-hover>
-        <v-img src="/src/assets/Demo/img/夜のピエロ.png" height="200px" :height="isHovering ? '400px' : '200px'" cover>
-          <v-overlay :model-value="isHovering" contained class="align-center justify-center">
-            <a href="#"><v-btn v-show="isHovering" prepend-icon="mdi-open-in-new" variant="outlined" color="white">
-              转到视频
-            </v-btn></a>
-            
 
-          </v-overlay>
-          <v-card-actions v-show="isHovering" class="pa-0 pl-6 pr-6 mb-4">
-
-          </v-card-actions>
-        </v-img>
-      </v-hover>
+      </v-card>
 
 
 
-      <v-card-title class="pa-0 pl-6 mt-4"> <span class="text-h5"> 夜のピエロ </span></v-card-title>
+
+      <v-card-title class="pa-0 pl-6 mt-4"> <span class="text-h5"> {{ music.title }} </span></v-card-title>
 
       <v-card-subtitle class="pa-0 pl-6 pr-6 mt-4 mb-4">
-        <v-chip class="mr-2"> 改编{{  }} </v-chip>
-        <v-chip class="mr-2"> 标准调弦{{  }} </v-chip>
+        <v-chip class="mr-2"> {{ music.type }} </v-chip>
+        <v-chip class="mr-2"> {{ music.tuning }} </v-chip>
       </v-card-subtitle>
 
-      <!-- <v-card-text style="position: absolute;right:12px;bottom:2px" class="pa-0 pl-6 mt-2 mb-2">
-        上传者：{{ }}
-      </v-card-text> -->
+      <v-card-text class="pa-0 pl-6 mt-2 mb-2" style="position: absolute;right:12px;bottom:2px">
+        id: {{ index }}
+      </v-card-text>
 
     </v-card>
   </v-hover>
@@ -39,5 +46,60 @@
 <script setup>
 import { ref, reactive } from "vue";
 
+const props = defineProps(['music', 'index'])
+
 
 </script>
+
+<style>
+#img {
+  transition: transform 0.5s;
+  height: 200px;
+  object-fit: cover;
+
+}
+
+#img:hover {
+  transform: matrix(1.4, 0, -0, 1.4, 0, 0);
+  background-color: rgba(0, 0, 0);
+  opacity: 0.5;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0,0.3);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  height: 100%;
+}
+
+.btn {
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+</style>
