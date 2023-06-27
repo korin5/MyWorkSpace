@@ -1,51 +1,50 @@
 <template>
-  <v-card class="ma-6 mb-0 pa-6" rounded="lg" height="auto" width="auto">
-    <h3 class="text-h6">调音</h3>
-    <v-chip-group class="pa-0" multiple v-model="tuningSelect">
-      <v-chip class="mr-2 " filter variant="outlined" v-for="(tuning, i) in tunings" :key="i">
-        {{ tuning }}
-      </v-chip>
-    </v-chip-group>
+  <v-hover v-slot:default="{ isHovering, props }">
+    <v-card class="ma-6 mb-0 pa-6" rounded="lg" height="auto" width="auto" :elevation="isHovering ? 20 : 2"
+      v-bind="props">
 
-    <h3 class="mt-6 text-h6">创作类型</h3>
-    <v-chip-group class="pa-0" multiple v-model="typeSelect">
-      <v-chip class="mr-2" filter variant="outlined" v-for="(typ, i) in types" :key="i">
-        {{ typ }}
-      </v-chip>
-    </v-chip-group>
-  </v-card>
+      <h3 class="text-h6">创作类型</h3>
+      <v-chip-group class="pa-0" multiple v-model="typeSelect">
+        <!-- <v-chip color="teal">全选</v-chip> -->
+        <v-chip color="teal" v-for="(typ, i) in types" :key="i">
+          {{ typ }}
+        </v-chip>
+      </v-chip-group>
 
-  <!-- 调试 -->
-  <v-snackbar v-model="snackbar">
-    {{ snackbarText }}
-    <template v-slot:actions>
-      <v-btn color="red" variant="text" @click="snackbar = false">
-        Close
-      </v-btn>
-    </template>
-  </v-snackbar>
+      <h3 class="mt-6 text-h6">调音</h3>
+      <v-chip-group class="pa-0" multiple v-model="tuningSelect">
+        <!-- <v-chip color="teal">全选</v-chip> -->
+        <v-chip color="teal" v-for="(tuning, i) in tunings" :key="i">
+          {{ tuning }}
+        </v-chip>
+      </v-chip-group>
+    </v-card>
+  </v-hover>
 </template>
 
 <script setup>
-import { ref, reactive, watch, onUpdated } from "vue";
+import { ref, reactive, watch, onUpdated, computed, onMounted } from "vue";
+import { state } from "../scripts/state.js"
 
 const tuningSelect = ref([0]);
 const typeSelect = ref([0]);
-const snackbar = ref(null)
-const snackbarText = ref('')
+const currentTuning = computed(() => { return selectItems(tuningSelect.value, 'tuning') });
+const currentType = computed(() => { return selectItems(typeSelect.value, 'type') });
 const tunings = ref([]);
 const types = ref([]);
 
-const props = defineProps(['musicList'])
+// const props = defineProps(['musicList'])
 
 // 调试
 watch(tuningSelect, async () => {
-  snackbarText.value = '调音选择: ' + selectItems(tuningSelect.value, 'tuning')
-  snackbar.value = true
+  console.log('调音选择: ' + currentTuning.value)
 })
 watch(typeSelect, async () => {
-  snackbarText.value = '创作类型选择: ' + selectItems(typeSelect.value, 'type')
-  snackbar.value = true
+  console.log('创作类型选择: ' + currentType.value)
+})
+watch(() => state.musicList, async () => {
+  console.log( state.musicList )
+  showChips()
 })
 
 function selectItems(Items, type) {
@@ -64,6 +63,31 @@ function selectItems(Items, type) {
 
   return list
 }
+
+
+function showChips() {
+
+  tunings.value = []
+  types.value = []
+  state.musicList.forEach(function (music, index) {
+    tunings.value[index] = music.tuning;
+  })
+  state.musicList.forEach(function (music, index) {
+    types.value[index] = music.type;
+  })
+
+  tunings.value = sortByFrequency(tunings.value);
+  types.value = sortByFrequency(types.value);
+
+  // console.log('tunings.value: ' + tunings.value)
+  // console.log('types.value: ' + types.value)
+}
+
+
+
+onMounted(() => {
+  showChips();
+})
 
 //按出现次数排序
 function sortByFrequency(arr) {
@@ -93,18 +117,4 @@ function sortByFrequency(arr) {
   return result;
 }
 
-
-onUpdated(() => {
-
-  props.musicList.forEach(function(music,index){
-    tunings.value[index] = music.tuning;
-  })
-  props.musicList.forEach(function(music,index){
-    types.value[index] = music.type;
-  })
-
-  tunings.value = sortByFrequency(tunings.value);
-  types.value = sortByFrequency(types.value);
-
-})
 </script>

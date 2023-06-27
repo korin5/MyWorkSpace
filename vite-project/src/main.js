@@ -10,11 +10,14 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
-//icon
-import '@mdi/font/css/materialdesignicons.css'
+//Material Design
+// import '@mdi/font/css/materialdesignicons.css' 
 
-//vuelidate
-import Vuelidate from 'vuelidate'
+//Font Awesome5
+import '@fortawesome/fontawesome-free/css/all.css'
+
+//icons
+import { aliases, fa } from 'vuetify/iconsets/fa'
 //--------------------------------------------------------------
 
 //--------------------------------------------------------------
@@ -24,14 +27,18 @@ const vuetify = createVuetify({
   directives,
 })
 
-//icon
+//icons
 export default createVuetify({
   icons: {
-    defaultSet: 'mdi',
+    defaultSet: 'fa',
+    aliases,
+    sets: {
+      fa
+    },
   },
 })
 
 //mount
 createApp(App).use(vuetify).mount('#app')
-createApp(App).use(Vuelidate)
 //--------------------------------------------------------------
+

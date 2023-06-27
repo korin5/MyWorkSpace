@@ -1,32 +1,35 @@
 <template>
   <v-hover v-slot:default="{ isHovering, props }">
     <v-card class="flex-1-1 ma-6 mr-0 mt-0 align-self-baseline" min-width="100" max-width="500" v-bind="props"
-      rounded="lg" :elevation="isHovering ? 22 : 2">
+      rounded="lg" :elevation="isHovering ? 20 : 2">
 
       <v-card rounded="0" elevation="0">
-        <!-- <img id="img" :src="music.img">
-        <a class="ma-auto" style="text-decoration: none;display: block;" v-if="music.link" target="_blank"
-          :href="music.link"><v-btn v-show="isHovering" prepend-icon="mdi-open-in-new" variant="outlined" color="white">
-            观看视频
-          </v-btn></a> -->
-
         <div class="container">
           <img :src="music.img" class="image">
-          <div class="overlay">
-            <a class="btn ma-auto" style="text-decoration: none;display: block;" v-if="music.link" target="_blank"
-              :href="music.link"><v-btn v-show="isHovering" prepend-icon="mdi-open-in-new" variant="outlined"
-                color="white">
-                观看视频
-              </v-btn></a>
+          <div class="overlay"></div>
+          <div class="button d-flex justify-center align-center">
+            <a class="ma-2" style="text-decoration: none;" v-if="music.link.bilibili" target="_blank"
+              :href="music.link.bilibili">
+              <v-btn size="x-large" icon="fab fa-bilibili" color="pink-accent-1">
+              </v-btn>
+              <v-tooltip activator="parent" location="bottom">转到BiliBili</v-tooltip>
+            </a>
+            <a class="ma-2" style="text-decoration: none;" v-if="music.link.youtube" target="_blank"
+              :href="music.link.youtube">
+              <v-btn size="x-large" icon="fab fa-youtube" color="red">
+              </v-btn>
+              <v-tooltip activator="parent" location="bottom">转到Youtube</v-tooltip>
+            </a>
+            <a class="ma-2" style="text-decoration: none;" v-if="music.link.info||1" target="_blank"
+              :href="music.link.info">
+              <v-btn size="x-large" icon="fas fa-list" color="white">
+              </v-btn>
+              <v-tooltip activator="parent" location="bottom">详细信息</v-tooltip>
+            </a>
           </div>
+
         </div>
-
-
-
       </v-card>
-
-
-
 
       <v-card-title class="pa-0 pl-6 mt-4"> <span class="text-h5"> {{ music.title }} </span></v-card-title>
 
@@ -52,26 +55,14 @@ const props = defineProps(['music', 'index'])
 </script>
 
 <style>
-#img {
-  transition: transform 0.5s;
-  height: 200px;
-  object-fit: cover;
-
-}
-
-#img:hover {
-  transform: matrix(1.4, 0, -0, 1.4, 0, 0);
-  background-color: rgba(0, 0, 0);
-  opacity: 0.5;
-}
-
 .container {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 80%;
 }
 
 .image {
+  transition: 0.4s ease;
   display: block;
   width: 100%;
   height: auto;
@@ -83,23 +74,38 @@ const props = defineProps(['music', 'index'])
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   overflow: hidden;
   width: 100%;
   height: 0;
-  transition: .5s ease;
+  transition: 0.4s ease;
+  /* border-radius: 9px 9px 0px 0px; */
 }
+
+.button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+a{
+  transition: 0.4s ease;
+  display: none;
+}
+
+.container:hover a{
+  display: inline-block;
+}
+
 
 .container:hover .overlay {
   height: 100%;
 }
 
-.btn {
-  position: absolute;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+.container:hover .image {
+  transform: matrix(1.4, 0, -0, 1.4, 0, 0);
+  filter: blur(2.5px);
 }
 </style>
