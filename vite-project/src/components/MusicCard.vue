@@ -1,7 +1,7 @@
 <template>
   <v-hover v-slot:default="{ isHovering, props }">
     <v-card class="flex-1-1 ma-6 mr-0 mt-0 align-self-baseline" min-width="100" max-width="500" v-bind="props"
-      rounded="lg" :elevation="isHovering ? 20 : 2">
+      rounded="lg" :elevation="isHovering ? 10 : 2">
 
       <v-card rounded="0" elevation="0">
         <div class="container">
@@ -46,7 +46,7 @@
   </v-hover>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from "vue";
 
 const props = defineProps(['music', 'index'])

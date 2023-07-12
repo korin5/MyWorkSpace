@@ -2,19 +2,22 @@
   <v-app-bar color="teal" >
 
     <!-- 侧边栏按钮 -->
-    <v-app-bar-nav-icon icon="fas fa-bars" class="ml-2" v-show="!state.drawer||1" @click.stop="()=>{state.drawer = !state.drawer}"></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon icon="fas fa-bars" class="ml-2" v-show="!store.drawer" @click.stop="()=>{store.drawer = !store.drawer}"></v-app-bar-nav-icon>
 
-    <v-app-bar-title >作品列表</v-app-bar-title>
+    <v-app-bar-title>曲目列表</v-app-bar-title>
 
     <v-btn rounded="lg" variant="outlined" class="mr-6 text-body-1 ">
-      上传单曲
-      <UploadMusicDialog></UploadMusicDialog>
+      <router-link to="/upload/">上传单曲</router-link>
+      
+      
+      <!-- <UploadMusicDialog></UploadMusicDialog> -->
     </v-btn>
 
   </v-app-bar>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import UploadMusicDialog from '../components/UploadMusicDialog.vue'
-import {state} from "../scripts/state.js"
+import { useStateStore } from '../scripts/store.js'
+const store = useStateStore()
 </script>

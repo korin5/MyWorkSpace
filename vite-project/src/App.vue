@@ -1,11 +1,11 @@
 <template>
   <v-layout>
 
-    <!-- 顶栏 -->
-    <TopBar></TopBar>
-
     <!-- 侧边栏 -->
     <NavBar></NavBar>
+
+    <!-- 顶栏 -->
+    <TopBar></TopBar>
     
     <!-- 主视图 -->
     <MainView></MainView>
@@ -13,7 +13,7 @@
   </v-layout>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, reactive, onMounted, watch } from "vue";
 import TopBar from "./views/TopBar.vue";
 import NavBar from "./views/NavBar.vue"

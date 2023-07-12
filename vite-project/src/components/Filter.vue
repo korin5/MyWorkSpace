@@ -1,6 +1,6 @@
 <template>
   <v-hover v-slot:default="{ isHovering, props }">
-    <v-card class="ma-6 mb-0 pa-6" rounded="lg" height="auto" width="auto" :elevation="isHovering ? 20 : 2"
+    <v-card class="ma-6 mb-0 pa-6" rounded="lg" height="auto" width="auto" :elevation="isHovering ? 10 : 2"
       v-bind="props">
 
       <h3 class="text-h6">创作类型</h3>
@@ -22,7 +22,7 @@
   </v-hover>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, reactive, watch, onUpdated, computed, onMounted } from "vue";
 import { state } from "../scripts/state.js"
 

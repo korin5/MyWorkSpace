@@ -7,7 +7,7 @@
         <!-- 卡片 -->
         <v-continer>
             <v-row no-gutters class="pr-6 pt-6">
-                <v-col v-for="(music, index) in state.musicList" v-show="music.tuning" cols="12" xs="12" sm="6" md="4" lg="4" xl="3">
+                <v-col v-for="(music, index) in state.musicList" v-show="music.tuning" cols="12" sm="6" md="4" lg="3" xl="3">
                     <MusicCard :music="music" :index="index"></MusicCard>
                 </v-col>
             </v-row>
@@ -16,7 +16,7 @@
     </v-main>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, reactive, onMounted, watch } from "vue";
 import Filter from "../components/Filter.vue";
 import MusicCard from "../components/MusicCard.vue";
