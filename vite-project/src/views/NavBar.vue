@@ -7,8 +7,8 @@
 </template>
 
 <script setup lang="ts">
-import {state} from "../scripts/state.js"
+// import {state} from "../scripts/state.js"
 import PlayerList from "../components/PlayerList.vue"
-import { useStateStore } from '../scripts/store.js'
+import { useStateStore } from '../stores/store'
 const store = useStateStore()
 </script>

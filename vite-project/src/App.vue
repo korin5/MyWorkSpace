@@ -14,22 +14,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted, watch } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import TopBar from "./views/TopBar.vue";
 import NavBar from "./views/NavBar.vue"
 import MainView from "./views/MainView.vue"
-import {state} from "./scripts/state.js"
+import { useDataStore } from "./stores/store";
+// import {state} from "./scripts/state.js"
+
+const store = useDataStore()
 
 onMounted(()=>{
-    // GET请求乐手列表
-    state.playerList = ["井草圣二", "松井佑贵", "岸部真明", "Tommy Emmanuel"]
+    // get请求乐手
+    store.getPlayerList()
 
-    // GET请求曲目列表
-    state.musicList = [
-        { 'title': '花火', 'tuning': 'DADGAD', 'type': '原创', 'img': '/src/assets/img/花火.png', 'link': 'https://www.bilibili.com/video/BV1Us411t7me' },
-        { 'title': 'Silk Hat', 'tuning': '标准调弦', 'type': '原创', 'img': '/src/assets/img/silkHat.png', 'link': 'https://www.bilibili.com/video/BV1Vs411b7Vx' },
-        { 'title': '夜のピエロ', 'tuning': '标准调弦', 'type': '改编', 'img': '/src/assets/img/夜のピエロ.png', 'link': 'https://www.bilibili.com/video/BV1aR4y1c7nY' },
-        { 'title': '恋', 'tuning': '标准调弦', 'type': '改编', 'img': '/src/assets/img/恋.png', 'link': 'https://www.bilibili.com/video/BV1JJ411z7Ej' }]
-
+    // GET请求曲目
+    store.getMusicList(['井草圣二'])
 })
 </script>

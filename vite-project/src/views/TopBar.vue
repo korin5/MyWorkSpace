@@ -7,10 +7,8 @@
     <v-app-bar-title>曲目列表</v-app-bar-title>
 
     <v-btn rounded="lg" variant="outlined" class="mr-6 text-body-1 ">
-      <router-link to="/upload/">上传单曲</router-link>
-      
-      
-      <!-- <UploadMusicDialog></UploadMusicDialog> -->
+      上传单曲
+      <UploadMusicDialog></UploadMusicDialog>
     </v-btn>
 
   </v-app-bar>
@@ -18,6 +16,6 @@
 
 <script setup lang="ts">
 import UploadMusicDialog from '../components/UploadMusicDialog.vue'
-import { useStateStore } from '../scripts/store.js'
+import { useStateStore } from '../stores/store'
 const store = useStateStore()
 </script>

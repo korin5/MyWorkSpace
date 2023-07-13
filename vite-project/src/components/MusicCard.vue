@@ -10,13 +10,13 @@
           <div class="button d-flex justify-center align-center">
             <a class="ma-2" style="text-decoration: none;" v-if="music.link.bilibili" target="_blank"
               :href="music.link.bilibili">
-              <v-btn size="x-large" icon="fab fa-bilibili" color="pink-accent-1">
+              <v-btn size="x-large" icon="fa-bilibili" color="pink-accent-1">
               </v-btn>
               <v-tooltip activator="parent" location="bottom">转到BiliBili</v-tooltip>
             </a>
             <a class="ma-2" style="text-decoration: none;" v-if="music.link.youtube" target="_blank"
               :href="music.link.youtube">
-              <v-btn size="x-large" icon="fab fa-youtube" color="red">
+              <v-btn size="x-large" icon="fa fa-youtube" color="red">
               </v-btn>
               <v-tooltip activator="parent" location="bottom">转到Youtube</v-tooltip>
             </a>

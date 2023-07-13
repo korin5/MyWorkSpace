@@ -1,24 +1,30 @@
 <template>
     <v-main min-height="300" class="bg-grey-lighten-5">
+        <Filter></Filter>
 
-        <!-- 过滤器 -->
-        <!-- <Filter></Filter> -->
-
-        <!-- 卡片 -->
-        <v-continer>
             <v-row no-gutters class="pr-6 pt-6">
-                <v-col v-for="(music, index) in state.musicList" v-show="music.tuning" cols="12" sm="6" md="4" lg="3" xl="3">
+                <v-col v-for="(music, index) in musicList" cols="12" sm="6" md="4" lg="3" xl="3">
                     <MusicCard :music="music" :index="index"></MusicCard>
                 </v-col>
             </v-row>
-        </v-continer>
-
     </v-main>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted, watch } from "vue";
+import { ref, reactive, onMounted, watch,computed } from "vue";
 import Filter from "../components/Filter.vue";
 import MusicCard from "../components/MusicCard.vue";
-import { state } from "../scripts/state.js"
+import { useDataStore } from "../stores/store";
+
+const store = useDataStore()
+
+const musicList = computed(() => {
+    let newList = []
+    for(let index in store.musicList){
+        if(store.musicList[index].show === true){
+            newList.push(store.musicList[index])
+        }
+    }
+    return newList;
+})
 </script>
