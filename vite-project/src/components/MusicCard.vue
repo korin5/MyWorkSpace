@@ -10,19 +10,24 @@
           <div class="button d-flex justify-center align-center">
             <a class="ma-2" style="text-decoration: none;" v-if="music.link.bilibili" target="_blank"
               :href="music.link.bilibili">
-              <v-btn size="x-large" icon="fa-bilibili" color="pink-accent-1">
+              <v-btn size="x-large" icon="" color="pink-accent-1">
+                <i class="fa-brands fa-bilibili fa-lg"></i>
               </v-btn>
               <v-tooltip activator="parent" location="bottom">转到BiliBili</v-tooltip>
             </a>
+
             <a class="ma-2" style="text-decoration: none;" v-if="music.link.youtube" target="_blank"
               :href="music.link.youtube">
-              <v-btn size="x-large" icon="fa fa-youtube" color="red">
+              <v-btn size="x-large" icon="" color="red">
+                <i class="fab fa-youtube fa-lg"></i>
               </v-btn>
               <v-tooltip activator="parent" location="bottom">转到Youtube</v-tooltip>
             </a>
-            <a class="ma-2" style="text-decoration: none;" v-if="music.link.info||1" target="_blank"
+
+            <a class="ma-2" style="text-decoration: none;" v-if="music.link.info || 1" target="_blank"
               :href="music.link.info">
               <v-btn size="x-large" icon="fas fa-list" color="white">
+                <i class="fas fa-list fa-lg"></i>
               </v-btn>
               <v-tooltip activator="parent" location="bottom">详细信息</v-tooltip>
             </a>
@@ -55,6 +60,7 @@ const props = defineProps(['music', 'index'])
 </script>
 
 <style>
+
 .container {
   position: relative;
   width: 100%;
@@ -90,12 +96,12 @@ const props = defineProps(['music', 'index'])
   right: 0;
 }
 
-a{
+a {
   transition: 0.4s ease;
   display: none;
 }
 
-.container:hover a{
+.container:hover a {
   display: inline-block;
 }
 

@@ -16,6 +16,7 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import './plugins/vuetify'
 const vuetify = createVuetify({
   components,
   directives,
@@ -23,26 +24,6 @@ const vuetify = createVuetify({
 
 //--------------------------------------------------------------
 // icons
-//--------------------------------------------------------------
-import '@mdi/font/css/materialdesignicons.css'
-import '@fortawesome/fontawesome-free/css/all.css'
-import { aliases, fa } from 'vuetify/iconsets/fa'
-import { mdi } from 'vuetify/iconsets/mdi'
-
-export default createVuetify({
-  icons: {
-    defaultSet: 'fa',
-    aliases,
-    sets: {
-      fa,
-      mdi,
-    },
-  },
-})
-
-
-//--------------------------------------------------------------
-// fa
 //--------------------------------------------------------------
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -55,6 +36,7 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
 library.add(faUserSecret)
+
 
 //--------------------------------------------------------------
 // use & mount

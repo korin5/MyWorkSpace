@@ -19,7 +19,7 @@
         </v-chip>
       </v-chip-group>
 
-      <v-btn class="mt-6" color="teal">应用</v-btn>
+      <!-- <v-btn class="mt-6" color="teal">应用</v-btn> -->
     </v-card>
   </v-hover>
 </template>
