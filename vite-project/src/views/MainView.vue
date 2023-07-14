@@ -15,9 +15,11 @@ import { ref, reactive, onMounted, watch,computed } from "vue";
 import Filter from "../components/Filter.vue";
 import MusicCard from "../components/MusicCard.vue";
 import { useDataStore } from "../stores/store";
+import { useRouter, useRoute } from 'vue-router'
 
 const store = useDataStore()
-
+const router = useRouter()
+const route = useRoute()
 const musicList = computed(() => {
     let newList = []
     for(let index in store.musicList){

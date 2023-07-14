@@ -2,9 +2,10 @@ import { createRouter,createWebHistory,createWebHashHistory } from 'vue-router'
 import MainView from '../views/MainView.vue'
 
 const routes = [
-    { path: '/:player/',component:MainView },
-    { path: '/:player/:song/',component:MainView},
-    { path: '/upload/',component:MainView }
+    { path: '/:player',component:MainView},
+    // { path: '/:player/',component:MainView },
+    // { path: '/:player/:song/',component:MainView},
+    // { path: '/upload/',component:MainView }
 ]
 
 const router = createRouter({

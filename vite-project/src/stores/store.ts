@@ -13,10 +13,10 @@ export const useDataStore = defineStore('data', () => {
     function getPlayerList() {
         //get请求乐手
         playerList.value = [
-            { "name": "井草圣二", "avatar": "fas fa-home" },
-            { "name": "松井佑贵", "avatar": "fas fa-home" },
-            { "name": "岸部真明", "avatar": "fas fa-home" },
-            { "name": "Tommy Emmanuel", "avatar": "fas fa-home" },
+            { "name": "井草圣二", prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg', },
+            { "name": "松井佑贵", prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg', },
+            { "name": "岸部真明", prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg', },
+            { "name": "Tommy Emmanuel", prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg', },
         ]
     }
     function getMusicList(playerSelect) {
@@ -85,10 +85,10 @@ export const useDataStore = defineStore('data', () => {
         for (let index in musics) {
             if (tuningSelected.includes(musics[index].tuning) && typeSelected.includes(musics[index].type)) {
                 musics[index].show = true
-                console.log('show' + musics[index].title)
+                // console.log('show' + musics[index].title)
             } else {
                 musics[index].show = false
-                console.log('hide' + musics[index].title)
+                // console.log('hide' + musics[index].title)
             }
         }
     }
