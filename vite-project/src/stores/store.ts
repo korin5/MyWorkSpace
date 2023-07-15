@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, reactive, watch, toRaw } from 'vue'
+import axios from 'axios'
 
 export const useStateStore = defineStore('state', () => {
     const drawer = ref()
@@ -12,6 +13,18 @@ export const useDataStore = defineStore('data', () => {
 
     function getPlayerList() {
         //get请求乐手
+        axios.get('/?players')
+            .then(function (response) {
+            // 处理成功情况
+            console.log(response);
+            })
+            .catch(function (error) {
+            // 处理错误情况
+            console.log(error);
+            })
+            .then(function () {
+            // 总是会执行
+            });
         playerList.value = [
             { "name": "井草圣二", prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg', },
             { "name": "松井佑贵", prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg', },
@@ -21,6 +34,18 @@ export const useDataStore = defineStore('data', () => {
     }
     function getMusicList(playerSelect) {
         //get请求曲目
+        axios.get('/?'+playerSelect)
+            .then(function (response) {
+            // 处理成功情况
+            console.log(response);
+            })
+            .catch(function (error) {
+            // 处理错误情况
+            console.log(error);
+            })
+            .then(function () {
+            // 总是会执行
+            });
         if (playerSelect == '井草圣二') {
             musicList.value = [
                 {
@@ -38,9 +63,10 @@ export const useDataStore = defineStore('data', () => {
                     "tuning": "标准调弦",
                     "type": "原创",
                     "show": true,
-                    "img": "/src/assets/img/silkHat.png", "link": {
+                    "img": "/src/assets/img/silkHat.png",
+                    "link": {
                         "bilibili": "https://www.bilibili.com/video/BV1Vs411b7Vx",
-                        "youtube": "#"
+                        "youtube": "https://www.youtube.com"
                     }
                 },
                 {
