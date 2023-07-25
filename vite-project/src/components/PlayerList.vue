@@ -30,8 +30,8 @@ watch(playerSelect, async () => {
 watch(() => route.params, async () => {
     store.getMusicList(route.params.player)
     let player = route.params.player
-    console.log('route.params.player: ' + player)
-    console.log('playerSelect.value: ' + playerSelect.value)
+    // console.log('route.params.player: ' + player)
+    // console.log('playerSelect.value: ' + playerSelect.value)
 })
 
 </script>
